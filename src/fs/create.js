@@ -2,10 +2,10 @@ import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-const __fileName = fileURLToPath(import.meta.url);
-const __dirName = dirname(__fileName);
+const fileName = fileURLToPath(import.meta.url);
+const dirName = dirname(fileName);
 
-const filePath = join(__dirName, 'files', 'fresh.txt');
+const filePath = join(dirName, 'files', 'fresh.txt');
 const fileContent = 'I am fresh and young';
 
 const create = async () => {
