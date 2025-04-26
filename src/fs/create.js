@@ -16,7 +16,7 @@ const create = async () => {
             { flag: 'wx' }
         );
     } catch {
-        throw Error('FS operation failed');
+        throw new Error('FS operation failed');
     }
 };
 
