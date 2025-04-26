@@ -20,16 +20,16 @@ const fileExists = async (file) => {
 const rename = async () => {
     try {
         if (!(await fileExists(originalFile))) {
-            throw Error('FS operation failed');
+            throw new Error('FS operation failed');
         }
 
         if (await fileExists(renamedFile)) {
-            throw Error('FS operation failed');
+            throw new Error('FS operation failed');
         }
 
         await renameFS(originalFile, renamedFile);
     } catch (error) {
-        throw Error('FS operation failed');
+        throw new Error('FS operation failed');
     } 
 };
 

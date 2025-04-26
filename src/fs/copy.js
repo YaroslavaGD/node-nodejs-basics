@@ -18,7 +18,7 @@ const copy = async () => {
         if (error.code === 'ENOENT' || error.code === 'ERR_FS_CP_EEXIST') {
             throw new Error('FS operation failed');
         }
-        throw error;
+        throw new Error('FS operation failed');
     }
 };
 
