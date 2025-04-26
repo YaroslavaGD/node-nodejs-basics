@@ -1,4 +1,4 @@
-import { rm } from "node:fs/promises";
+import { unlink } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -8,7 +8,7 @@ const deleteFileName = join(dirName, 'files', 'fileToRemove.txt');
 
 const remove = async () => {
     try {
-        await rm(deleteFileName);
+        await unlink(deleteFileName);
     } catch (error) {
         if (error.code === 'ENOENT') {
             throw new Error('FS operation failed');
