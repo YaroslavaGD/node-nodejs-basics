@@ -14,8 +14,11 @@ const copy = async () => {
             destinationDirName,
             { errorOnExist: true, recursive: true, force: false }
         );
-    } catch {
-        throw Error('FS operation failed');
+    } catch (error){
+        if (error.code === 'ENOENT' || error.code === 'ERR_FS_CP_EEXIST') {
+            throw new Error('FS operation failed');
+        }
+        throw error;
     }
 };
 
