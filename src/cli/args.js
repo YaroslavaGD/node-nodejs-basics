@@ -1,5 +1,11 @@
 const parseArgs = () => {
     const args = process.argv.slice(2);
+
+    if (args.length % 2 !== 0) {
+        console.error('Error. Arguments should be in pairs');
+        process.exit(1);
+    }
+
     const parsedArgs = args.reduce((acc, current, index) => {
         if (current.startsWith('--')) {
             const key = current.slice(2);
