@@ -1,14 +1,7 @@
 import * as path from "node:path";
-// const path = require('path');
-
 import { release, version } from "node:os";
-// const { release, version } = require('os');
-
 import { createServer as  createServerHttp} from "node:http";
-// const { createServer: createServerHttp } = require('http');
-
 import "./files/c.cjs";
-// require('./files/c');
 
 import { fileURLToPath } from "node:url";
 
@@ -21,10 +14,8 @@ let unknownObject;
 
 if (random > 0.5) {
     unknownObject = await import("./files/a.json", { with: { type: 'json' }}).then(module => module.default);
-    // unknownObject = require('./files/a.json');
 } else {
     unknownObject = await import("./files/b.json", { with: { type: 'json' }}).then(module => module.default);
-    // unknownObject = require('./files/b.json');
 }
 
 console.log(`Release ${release()}`);
@@ -51,8 +42,3 @@ export {
     unknownObject,
     myServer,
 };
-// module.exports = {
-//     unknownObject,
-//     myServer,
-// };
-
